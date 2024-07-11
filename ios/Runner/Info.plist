@@ -28,6 +28,12 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>Требуется разрешение на использование вашего местоположения для трекинга вашего маршрута</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Требуется разрешение на использование вашего местоположения для трекинга вашего маршрута</string>
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Этому приложению требуется доступ к данным о местоположении, когда оно работает в фоновом режиме.</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
