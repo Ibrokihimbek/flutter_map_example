@@ -195,11 +195,15 @@ class _HomePageState extends State<HomePage> with LocationMixin, TickerProviderS
                         children: [
                           TileLayer(
                             urlTemplate:
-                            'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                            userAgentPackageName: 'dev.fleaflet.flutter_map.example',
+                                'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=$mapToken',
+                            userAgentPackageName:
+                                'dev.fleaflet.flutter_map.example',
                             tileProvider: CancellableNetworkTileProvider(),
-                            tileUpdateTransformer: _animatedMoveTileUpdateTransformer,
-                          ),
+                            tileUpdateTransformer:
+                                _animatedMoveTileUpdateTransformer,
+                            additionalOptions: const {
+                              'id': 'mapbox/outdoors-v12',
+                            }),
                           MarkerLayer(
                             markers: [
                               Marker(
@@ -212,7 +216,6 @@ class _HomePageState extends State<HomePage> with LocationMixin, TickerProviderS
                                   color: Colors.red,
                                 ),
                               ),
-                              ...allMarkers.take(state.companies.length),
                             ],
                           ),
                           FlutterMapZoomButtons(
@@ -236,3 +239,6 @@ class _HomePageState extends State<HomePage> with LocationMixin, TickerProviderS
     );
   }
 }
+
+String mapToken =
+      'pk.eyJ1IjoiaWRhdnJvbmJla292Nzc3NyIsImEiOiJjbHlmcTR5cmowMjR0MmtxeWMwNWgzbnhlIn0.tpmQpj1RdOYNm11-vithzA';
